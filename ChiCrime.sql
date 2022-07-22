@@ -5,7 +5,7 @@ FROM `bigquery-public-data.chicago_crime.crime`
 Group by block
 order by HighCrimeBlock desc
 
- -- result: 100XX W OHARE ST 0.21%, 001XX N STATE ST 0.19%, 076XX S CICERO AVE 0.13% out of 62252 blocks that exisy in Chicago
+ -- result: 100XX W OHARE ST 0.21%, 001XX N STATE ST 0.19%, 076XX S CICERO AVE 0.13% out of 62252 blocks that exist in Chicago
 
 /* Top 3 crimes commited?*/
 
@@ -15,6 +15,16 @@ Group by primary_type
 order by AmountCommited desc
 
  -- result: THEFT 21.07%, BATTERY 18.34%, CRIMINAL DAMAGE 11.4%
+ 
+ /* Where do most homocides occur? */
+ 
+SELECT count(primary_type) AS Homocides, location_description
+FROM `bigquery-public-data.chicago_crime.crime` 
+Where primary_type = 'HOMICIDE'
+Group by location_description
+Order by Homocides desc;
+
+ -- result: Street
 
 /* What percentage of crimes result in arrest? */
 
