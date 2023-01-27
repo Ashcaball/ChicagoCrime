@@ -32,7 +32,7 @@ SELECT count(arrest) AS Arrested
 FROM `bigquery-public-data.chicago_crime.crime` 
 WHERE arrest = false 
 
- -- Result: 26.52%
+ -- result: 26.52%
 
 /* What locations do most crimes occur at? (ex: sidewalk, alley, school) */
 
@@ -40,7 +40,7 @@ SELECT location_description, count(location_description) AS location_of_crime
 FROM `bigquery-public-data.chicago_crime.crime` 
 Group by location_description
 
- -- Result: Residence 16.89% 
+ -- result: Residence 16.89% 
  
  /* Which years had highest and lowest amount of crimes commited?*/
  
@@ -49,7 +49,7 @@ FROM `bigquery-public-data.chicago_crime.crime`
 Group BY year
 order by CrimeYear desc
 
- -- result: HIGHh: 2002 with 486788 crimes commited, LOW: 2021 with 207594 crimes commited
+ -- result: HIGH: 2002 with 486788 crimes commited, LOW: 2021 with 207594 crimes commited
  
  
  
